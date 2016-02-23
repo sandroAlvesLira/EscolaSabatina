@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+
+
+        <item
+            android:id="@+id/licao1"
+            android:icon="@drawable/ic_local_library_24dp"
+            android:title="Lição 1: 26 de Dez a 01 de Jan" />
+
+        <item
+            android:id="@+id/licao2"
+            android:icon="@drawable/ic_local_library_24dp"
+            android:title="Lição 2: 02 de Jan a 08 de Jan" />
+
+        <item
+            android:id="@+id/licao3"
+            android:icon="@drawable/ic_local_library_24dp"
+            android:title="Lição 3: 09 de Jan a 15 de Jan" />
+
+        <item
+            android:id="@+id/licao4"
+            android:icon="@drawable/ic_local_library_24dp"
+            android:title="Lição 4: 16 de Jan a 22 de Jan" />
+
+        <item
+            android:id="@+id/licao5"
+            android:icon="@drawable/ic_local_library_24dp"
+            android:title="Lição 5: 23 de Jan a 29 de Fev" />
+
+        <item
+            android:id="@+id/licao6"
+            android:icon="@drawable/ic_local_library_24dp"
+            android:title="Lição 6: 30 de Jan a 05 de Fev" />
+
+        <item
+            android:id="@+id/licao7"
+            android:icon="@drawable/ic_local_library_24dp"
+            android:title="Lição 7: 06 de Fev a 12 de Fev" />
+
+        <item
+            android:id="@+id/licao8"
+            android:icon="@drawable/ic_local_library_24dp"
+            android:title="Lição 8: 13 de Fev a 19 de fev" />
+
+        <item
+            android:id="@+id/licao9"
+            android:icon="@drawable/ic_local_library_24dp"
+            android:title="Lição 9: 20 de Fev a 26 de Fev" />
+
+        <item
+            android:id="@+id/licao10"
+            android:icon="@drawable/ic_local_library_24dp"
+            android:title="Lição 10: 27 de Fev a 04 de Mar" />
+
+        <item
+            android:id="@+id/licao11"
+            android:icon="@drawable/ic_local_library_24dp"
+            android:title="Lição 11: 05 de Mar a 11 de Mar" />
+
+        <item
+            android:id="@+id/licao12"
+            android:icon="@drawable/ic_local_library_24dp"
+            android:title="Lição 12: 12 de Mar a 18 de Mar" />
+
+        <item
+            android:id="@+id/licao13"
+            android:icon="@drawable/ic_local_library_24dp"
+            android:title="Lição 13: 19 de Mar a 25 de Mar" />
+
+    </group>
+
+    <item android:title="Opções">
+        <menu>
+            <item
+                android:id="@+id/sair"
+                android:icon="@drawable/ic_directions_walk_24dp"
+                android:title="Sair" />
+        </menu>
+    </item>
+
+</menu>
