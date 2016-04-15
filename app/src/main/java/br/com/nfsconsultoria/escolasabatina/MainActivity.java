@@ -22,19 +22,19 @@ import java.util.Date;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    final String url1 = "http://evangelismo.adventistas.org.pt/licao/2016/1T/1";
-    final String url2 = "http://evangelismo.adventistas.org.pt/licao/2016/1T/2";
-    final String url3 = "http://evangelismo.adventistas.org.pt/licao/2016/1T/3";
-    final String url4 = "http://evangelismo.adventistas.org.pt/licao/2016/1T/4";
-    final String url5 = "http://evangelismo.adventistas.org.pt/licao/2016/1T/5";
-    final String url6 = "http://evangelismo.adventistas.org.pt/licao/2016/1T/6";
-    final String url7 = "http://evangelismo.adventistas.org.pt/licao/2016/1T/7";
-    final String url8 = "http://evangelismo.adventistas.org.pt/licao/2016/1T/8";
-    final String url9 = "http://evangelismo.adventistas.org.pt/licao/2016/1T/9";
-    final String url10 = "http://evangelismo.adventistas.org.pt/licao/2016/1T/10";
-    final String url11 = "http://evangelismo.adventistas.org.pt/licao/2016/1T/11";
-    final String url12 = "http://evangelismo.adventistas.org.pt/licao/2016/1T/12";
-    final String url13 = "http://evangelismo.adventistas.org.pt/licao/2016/1T/13";
+    final String url1 = "http://evangelismo.adventistas.org.pt/licao/2016/2T/1";
+    final String url2 = "http://evangelismo.adventistas.org.pt/licao/2016/2T/2";
+    final String url3 = "http://evangelismo.adventistas.org.pt/licao/2016/2T/3";
+    final String url4 = "http://evangelismo.adventistas.org.pt/licao/2016/2T/4";
+    final String url5 = "http://evangelismo.adventistas.org.pt/licao/2016/2T/5";
+    final String url6 = "http://evangelismo.adventistas.org.pt/licao/2016/2T/6";
+    final String url7 = "http://evangelismo.adventistas.org.pt/licao/2016/2T/7";
+    final String url8 = "http://evangelismo.adventistas.org.pt/licao/2016/2T/8";
+    final String url9 = "http://evangelismo.adventistas.org.pt/licao/2016/2T/9";
+    final String url10 = "http://evangelismo.adventistas.org.pt/licao/2016/2T/10";
+    final String url11 = "http://evangelismo.adventistas.org.pt/licao/2016/2T/11";
+    final String url12 = "http://evangelismo.adventistas.org.pt/licao/2016/2T/12";
+    final String url13 = "http://evangelismo.adventistas.org.pt/licao/2016/2T/13";
     String url = null;
 
     @Override
@@ -184,12 +184,18 @@ Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
         progress.setVisibility(View.INVISIBLE);
 
         if (url == null) {
-            webView.loadDataWithBaseURL("", "<p><font color= 'blue' size='05'>BEM VINDO AO ESTUDO DA " +
-                    "LIÇÃO DA ESCOLA SABATINA 1º TRIMESTRE DE 2016</font></p>" +
-                    "<p><font color='red' size='04'>Aplicativo desenvolvido por Luis Carlos Santos - NFS" +
+            webView.loadDataWithBaseURL("", "<h4><p><font color= 'blue' size='05'>BEM VINDO AO ESTUDO DA " +
+                    "LIÇÃO DA ESCOLA SABATINA 2º TRIMESTRE DE 2016</font></p></h4>" +
+                    "<p><font color='red' size='03'>Aplicativo desenvolvido por Luis Carlos Santos - NFS" +
                     "</font></p>", "text/html", "UTF-8", "");
         } else {
-            webView.getSettings().setJavaScriptEnabled(true);
+           webView.getSettings().setJavaScriptEnabled(true);
+            webView.setWebViewClient(new WebViewClient());
+            //webView.getSettings().setBuiltInZoomControls(true);
+            webView.setPadding(0, 0, 0, 0);
+            webView.getSettings().setLoadWithOverviewMode(true);
+            webView.getSettings().setUseWideViewPort(true);
+            webView.setScrollBarStyle(WebView.SCROLLBARS_OUTSIDE_OVERLAY);
             webView.loadUrl(url);
 
             webView.setWebViewClient(new WebViewClient() {

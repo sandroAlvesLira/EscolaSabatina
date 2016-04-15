@@ -7,67 +7,67 @@
         <item
             android:id="@+id/licao1"
             android:icon="@drawable/ic_local_library_24dp"
-            android:title="Lição 1: 26 de Dez a 01 de Jan" />
+            android:title="Lição 1: 26 de Mar a 01 de Abr" />
 
         <item
             android:id="@+id/licao2"
             android:icon="@drawable/ic_local_library_24dp"
-            android:title="Lição 2: 02 de Jan a 08 de Jan" />
+            android:title="Lição 2: 02 de Abr a 08 de Abr " />
 
         <item
             android:id="@+id/licao3"
             android:icon="@drawable/ic_local_library_24dp"
-            android:title="Lição 3: 09 de Jan a 15 de Jan" />
+            android:title="Lição 3: 09 de Abr a 15 de Abr" />
 
         <item
             android:id="@+id/licao4"
             android:icon="@drawable/ic_local_library_24dp"
-            android:title="Lição 4: 16 de Jan a 22 de Jan" />
+            android:title="Lição 4: 16 de Abr a 22 de Abr" />
 
         <item
             android:id="@+id/licao5"
             android:icon="@drawable/ic_local_library_24dp"
-            android:title="Lição 5: 23 de Jan a 29 de Fev" />
+            android:title="Lição 5: 23 de Abr a 29 de Abr" />
 
         <item
             android:id="@+id/licao6"
             android:icon="@drawable/ic_local_library_24dp"
-            android:title="Lição 6: 30 de Jan a 05 de Fev" />
+            android:title="Lição 6: 30 de Abr a 06 de Mai" />
 
         <item
             android:id="@+id/licao7"
             android:icon="@drawable/ic_local_library_24dp"
-            android:title="Lição 7: 06 de Fev a 12 de Fev" />
+            android:title="Lição 7: 07 de Mai a 13 de Mai" />
 
         <item
             android:id="@+id/licao8"
             android:icon="@drawable/ic_local_library_24dp"
-            android:title="Lição 8: 13 de Fev a 19 de fev" />
+            android:title="Lição 8: 14 de Mai a 20 de Mai" />
 
         <item
             android:id="@+id/licao9"
             android:icon="@drawable/ic_local_library_24dp"
-            android:title="Lição 9: 20 de Fev a 26 de Fev" />
+            android:title="Lição 9: 21 de Mai a 27 de Mai" />
 
         <item
             android:id="@+id/licao10"
             android:icon="@drawable/ic_local_library_24dp"
-            android:title="Lição 10: 27 de Fev a 04 de Mar" />
+            android:title="Lição 10: 28 de Mai a 03 de Jun" />
 
         <item
             android:id="@+id/licao11"
             android:icon="@drawable/ic_local_library_24dp"
-            android:title="Lição 11: 05 de Mar a 11 de Mar" />
+            android:title="Lição 11: 04 de Jun a 10 de Jun" />
 
         <item
             android:id="@+id/licao12"
             android:icon="@drawable/ic_local_library_24dp"
-            android:title="Lição 12: 12 de Mar a 18 de Mar" />
+            android:title="Lição 12: 11 de Jun a 17 de Jun" />
 
         <item
             android:id="@+id/licao13"
             android:icon="@drawable/ic_local_library_24dp"
-            android:title="Lição 13: 19 de Mar a 25 de Mar" />
+            android:title="Lição 13: 18 de Jun a 24 de Jun" />
 
     </group>
 
