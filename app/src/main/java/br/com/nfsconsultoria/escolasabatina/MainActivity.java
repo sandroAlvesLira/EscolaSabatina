@@ -3,7 +3,6 @@ package br.com.nfsconsultoria.escolasabatina;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -12,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Toast;
@@ -49,7 +49,9 @@ public class MainActivity extends AppCompatActivity
 
         Exibe();
         Menu();
- /**
+
+
+        /**
  FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
  fab.setOnClickListener(new View.OnClickListener() {
 @Override public void onClick(View view) {
@@ -71,109 +73,93 @@ Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
 
     public void Menu() {
 
-        /**
-        final MenuItem item1 = (MenuItem) this.findViewById(R.id.licao1);
-        final MenuItem item2 = (MenuItem) this.findViewById(R.id.licao2);
-        final MenuItem item3 = (MenuItem) this.findViewById(R.id.licao3);
-        final MenuItem item4 = (MenuItem) this.findViewById(R.id.licao4);
-        final MenuItem item5 = (MenuItem) this.findViewById(R.id.licao5);
-        final MenuItem item6 = (MenuItem) this.findViewById(R.id.licao6);
-        final MenuItem item7 = (MenuItem) this.findViewById(R.id.licao7);
-        final MenuItem item8 = (MenuItem) this.findViewById(R.id.licao8);
-        final MenuItem item9 = (MenuItem) this.findViewById(R.id.licao9);
-        final MenuItem item10 = (MenuItem) this.findViewById(R.id.licao10);
-        final MenuItem item11 = (MenuItem) this.findViewById(R.id.licao11);
-        final MenuItem item12 = (MenuItem) this.findViewById(R.id.licao12);
-        final MenuItem item13 = (MenuItem) this.findViewById(R.id.licao13);
-*/
-
         Drawable icoDone = getResources().getDrawable(R.drawable.ic_book_24dp);
         Drawable icoAtual = getResources().getDrawable(R.drawable.ic_school_24dp);
+
+        MenuItem item = (MenuItem) findViewById(R.id.action_settings);
 
         Date hoje = new Date();
         String formato = "yyyyMMdd";
         SimpleDateFormat dataFormatada = new SimpleDateFormat(formato);
         Long compara = Long.parseLong(dataFormatada.format(hoje));
 
-/**
         if ((compara >= 20151226) && (compara <= 20160101)) {
-            menu.getItem(0).setIcon(icoAtual);
+            item.setIcon(icoAtual);
         } else if (compara > 20160101) {
-            menu.getItem(0).setIcon(icoDone);
+            item.setIcon(icoDone);
         }
 
         if ((compara >= 20160102) && (compara <= 20160108)) {
-            menu.getItem(1).setIcon(icoAtual);
+            item.setIcon(icoAtual);
         } else if (compara > 20160108) {
-            menu.getItem(1).setIcon(icoDone);
+            item.setIcon(icoDone);
         }
 
         if ((compara >= 20160109) && (compara <= 20160115)) {
-            menu.getItem(2).setIcon(icoAtual);
+            item.setIcon(icoAtual);
         } else if (compara > 20160115) {
-            menu.getItem(2).setIcon(icoDone);
+            item.setIcon(icoDone);
         }
 
         if ((compara >= 20160116) && (compara <= 20160122)) {
-            menu.getItem(3).setIcon(icoAtual);
+            item.setIcon(icoAtual);
         } else if (compara > 20160122) {
-            menu.getItem(3).setIcon(icoDone);
+            item.setIcon(icoDone);
         }
 
         if ((compara >= 20160123) && (compara <= 20160129)) {
-            menu.getItem(4).setIcon(icoAtual);
+            item.setIcon(icoAtual);
         } else if (compara > 20160129) {
-            menu.getItem(4).setIcon(icoDone);
+            item.setIcon(icoDone);
         }
 
         if ((compara >= 20160130) && (compara <= 20160205)) {
-            menu.getItem(5).setIcon(icoAtual);
+            item.setIcon(icoAtual);
         } else if (compara > 20160205) {
-            menu.getItem(5).setIcon(icoDone);
+            item.setIcon(icoDone);
         }
 
         if ((compara >= 20160206) && (compara <= 20160212)) {
-            menu.getItem(6).setIcon(icoAtual);
+            item.setIcon(icoAtual);
         } else if (compara > 20160212) {
-            menu.getItem(6).setIcon(icoDone);
+            item.setIcon(icoDone);
         }
 
         if ((compara >= 20160213) && (compara <= 20160219)) {
-            menu.getItem(7).setIcon(icoAtual);
+            item.setIcon(icoAtual);
         } else if (compara > 20160219) {
-            menu.getItem(7).setIcon(icoDone);
+            item.setIcon(icoDone);
         }
 
         if ((compara >= 20160220) && (compara <= 20160226)) {
-            menu.getItem(8).setIcon(icoAtual);
+            item.setIcon(icoAtual);
         } else if (compara > 20160226) {
-            menu.getItem(8).setIcon(icoDone);
+            item.setIcon(icoDone);
         }
 
         if ((compara >= 20160227) && (compara <= 20160304)) {
-            menu.getItem(9).setIcon(icoAtual);
+            item.setIcon(icoAtual);
         } else if (compara > 20160304) {
-            menu.getItem(9).setIcon(icoDone);
+            item.setIcon(icoDone);
         }
 
         if ((compara >= 20160305) && (compara <= 20160311)) {
-            menu.getItem(10).setIcon(icoAtual);
+            item.setIcon(icoAtual);
         } else if (compara > 20160311) {
-            menu.getItem(10).setIcon(icoDone);
+            item.setIcon(icoDone);
         }
 
         if ((compara >= 20160312) && (compara <= 20160318)) {
-            menu.getItem(11).setIcon(icoAtual);
+            item.setIcon(icoAtual);
         } else if (compara > 20160318) {
-            menu.getItem(11).setIcon(icoDone);
+            item.setIcon(icoDone);
         }
 
         if ((compara >= 20160318) && (compara <= 20160225)) {
-            menu.getItem(12).setIcon(icoAtual);
+            item.setIcon(icoAtual);
         } else if (compara > 20160325) {
-            menu.getItem(12).setIcon(icoDone);
+            item.setIcon(icoDone);
         }
- */
     }
 
     public void Exibe() {
@@ -193,7 +179,7 @@ Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
             webView.setWebViewClient(new WebViewClient());
             //webView.getSettings().setBuiltInZoomControls(true);
             webView.setPadding(0, 0, 0, 0);
-            webView.getSettings().setLoadWithOverviewMode(true);
+            webView.getSettings().setLoadWithOverviewMode(false);
             webView.getSettings().setUseWideViewPort(true);
             webView.setScrollBarStyle(WebView.SCROLLBARS_OUTSIDE_OVERLAY);
             webView.loadUrl(url);
