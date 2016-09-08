@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
@@ -22,44 +23,32 @@ import java.util.Date;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    final String url1 = "http://evangelismo.adventistas.org.pt/licao/2016/2T/1";
-    final String url2 = "http://evangelismo.adventistas.org.pt/licao/2016/2T/2";
-    final String url3 = "http://evangelismo.adventistas.org.pt/licao/2016/2T/3";
-    final String url4 = "http://evangelismo.adventistas.org.pt/licao/2016/2T/4";
-    final String url5 = "http://evangelismo.adventistas.org.pt/licao/2016/2T/5";
-    final String url6 = "http://evangelismo.adventistas.org.pt/licao/2016/2T/6";
-    final String url7 = "http://evangelismo.adventistas.org.pt/licao/2016/2T/7";
-    final String url8 = "http://evangelismo.adventistas.org.pt/licao/2016/2T/8";
-    final String url9 = "http://evangelismo.adventistas.org.pt/licao/2016/2T/9";
-    final String url10 = "http://evangelismo.adventistas.org.pt/licao/2016/2T/10";
-    final String url11 = "http://evangelismo.adventistas.org.pt/licao/2016/2T/11";
-    final String url12 = "http://evangelismo.adventistas.org.pt/licao/2016/2T/12";
-    final String url13 = "http://evangelismo.adventistas.org.pt/licao/2016/2T/13";
+    // Declaração das URLs
+    final String url1 = "http://evangelismo.adventistas.org.pt/licao/2016/3T/1";
+    final String url2 = "http://evangelismo.adventistas.org.pt/licao/2016/3T/2";
+    final String url3 = "http://evangelismo.adventistas.org.pt/licao/2016/3T/3";
+    final String url4 = "http://evangelismo.adventistas.org.pt/licao/2016/3T/4";
+    final String url5 = "http://evangelismo.adventistas.org.pt/licao/2016/3T/5";
+    final String url6 = "http://evangelismo.adventistas.org.pt/licao/2016/3T/6";
+    final String url7 = "http://evangelismo.adventistas.org.pt/licao/2016/3T/7";
+    final String url8 = "http://evangelismo.adventistas.org.pt/licao/2016/3T/8";
+    final String url9 = "http://evangelismo.adventistas.org.pt/licao/2016/3T/9";
+    final String url10 = "http://evangelismo.adventistas.org.pt/licao/2016/3T/10";
+    final String url11 = "http://evangelismo.adventistas.org.pt/licao/2016/3T/11";
+    final String url12 = "http://evangelismo.adventistas.org.pt/licao/2016/3T/12";
+    final String url13 = "http://evangelismo.adventistas.org.pt/licao/2016/3T/13";
     String url = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
 
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
         Exibe();
-        Menu();
 
-
-        /**
- FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
- fab.setOnClickListener(new View.OnClickListener() {
-@Override public void onClick(View view) {
-Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-.setAction("Action", null).show();
-}
-});
- */
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -68,116 +57,24 @@ Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-
     }
 
-    public void Menu() {
-
-        Drawable icoDone = getResources().getDrawable(R.drawable.ic_book_24dp);
-        Drawable icoAtual = getResources().getDrawable(R.drawable.ic_school_24dp);
-
-        MenuItem item = (MenuItem) findViewById(R.id.action_settings);
-
-        Date hoje = new Date();
-        String formato = "yyyyMMdd";
-        SimpleDateFormat dataFormatada = new SimpleDateFormat(formato);
-        Long compara = Long.parseLong(dataFormatada.format(hoje));
-
-        if ((compara >= 20151226) && (compara <= 20160101)) {
-            item.setIcon(icoAtual);
-        } else if (compara > 20160101) {
-            item.setIcon(icoDone);
-        }
-
-        if ((compara >= 20160102) && (compara <= 20160108)) {
-            item.setIcon(icoAtual);
-        } else if (compara > 20160108) {
-            item.setIcon(icoDone);
-        }
-
-        if ((compara >= 20160109) && (compara <= 20160115)) {
-            item.setIcon(icoAtual);
-        } else if (compara > 20160115) {
-            item.setIcon(icoDone);
-        }
-
-        if ((compara >= 20160116) && (compara <= 20160122)) {
-            item.setIcon(icoAtual);
-        } else if (compara > 20160122) {
-            item.setIcon(icoDone);
-        }
-
-        if ((compara >= 20160123) && (compara <= 20160129)) {
-            item.setIcon(icoAtual);
-        } else if (compara > 20160129) {
-            item.setIcon(icoDone);
-        }
-
-        if ((compara >= 20160130) && (compara <= 20160205)) {
-            item.setIcon(icoAtual);
-        } else if (compara > 20160205) {
-            item.setIcon(icoDone);
-        }
-
-        if ((compara >= 20160206) && (compara <= 20160212)) {
-            item.setIcon(icoAtual);
-        } else if (compara > 20160212) {
-            item.setIcon(icoDone);
-        }
-
-        if ((compara >= 20160213) && (compara <= 20160219)) {
-            item.setIcon(icoAtual);
-        } else if (compara > 20160219) {
-            item.setIcon(icoDone);
-        }
-
-        if ((compara >= 20160220) && (compara <= 20160226)) {
-            item.setIcon(icoAtual);
-        } else if (compara > 20160226) {
-            item.setIcon(icoDone);
-        }
-
-        if ((compara >= 20160227) && (compara <= 20160304)) {
-            item.setIcon(icoAtual);
-        } else if (compara > 20160304) {
-            item.setIcon(icoDone);
-        }
-
-        if ((compara >= 20160305) && (compara <= 20160311)) {
-            item.setIcon(icoAtual);
-        } else if (compara > 20160311) {
-            item.setIcon(icoDone);
-        }
-
-        if ((compara >= 20160312) && (compara <= 20160318)) {
-            item.setIcon(icoAtual);
-        } else if (compara > 20160318) {
-            item.setIcon(icoDone);
-        }
-
-        if ((compara >= 20160318) && (compara <= 20160225)) {
-            item.setIcon(icoAtual);
-        } else if (compara > 20160325) {
-            item.setIcon(icoDone);
-        }
-    }
-
+    // TODO Exibir o conteudo da lição na tela
     public void Exibe() {
 
         final WebView webView = (WebView) this.findViewById(R.id.wbView);
         final View progress = this.findViewById(R.id.progress);
+        final ImageView telaInicio = (ImageView) this.findViewById(R.id.telaInicio);
 
         progress.setVisibility(View.INVISIBLE);
 
+        // Exibe tela de apresentação
         if (url == null) {
-            webView.loadDataWithBaseURL("", "<h4><p><font color= 'blue' size='05'>BEM VINDO AO ESTUDO DA " +
-                    "LIÇÃO DA ESCOLA SABATINA 2º TRIMESTRE DE 2016</font></p></h4>" +
-                    "<p><font color='red' size='03'>Aplicativo desenvolvido por Luis Carlos Santos - NFS" +
-                    "</font></p>", "text/html", "UTF-8", "");
+            telaInicio.setVisibility(View.VISIBLE);
         } else {
+            telaInicio.setVisibility(View.INVISIBLE);
            webView.getSettings().setJavaScriptEnabled(true);
             webView.setWebViewClient(new WebViewClient());
-            //webView.getSettings().setBuiltInZoomControls(true);
             webView.setPadding(0, 0, 0, 0);
             webView.getSettings().setLoadWithOverviewMode(false);
             webView.getSettings().setUseWideViewPort(true);
@@ -206,7 +103,6 @@ Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                     Toast.makeText(MainActivity.this, "FALHA NA CONEXÃO COM A INTERNET", Toast.LENGTH_LONG).show();
                 }
             });
-
         }
     }
 

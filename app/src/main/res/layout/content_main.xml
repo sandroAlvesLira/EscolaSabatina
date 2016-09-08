@@ -35,6 +35,15 @@
             android:indeterminateTintMode="src_atop"
             android:indeterminateTint="@color/colorPrimary"/>
 
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="vertical"
+            android:baselineAlignBottom="false"
+            android:id="@+id/telaInicio"
+            android:layout_gravity="left|top"
+            android:background="@mipmap/ic_licao" />
+
     </FrameLayout>
 
 </LinearLayout>
