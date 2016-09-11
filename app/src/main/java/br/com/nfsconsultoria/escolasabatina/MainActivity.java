@@ -1,12 +1,12 @@
 package br.com.nfsconsultoria.escolasabatina;
 
 import android.graphics.Bitmap;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -57,6 +57,16 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+    }
+
+    // TODO Dialogo de item não disponivel
+    public void Dialogo() {
+        AlertDialog.Builder alerta = new AlertDialog.Builder(MainActivity.this);
+        alerta.setTitle(getString(R.string.app_name));
+        alerta.setMessage("Lição ainda não disponivel no momento. Aguarde...");
+
+        AlertDialog dialog = alerta.create();
+        dialog.show();
     }
 
     // TODO Exibir o conteudo da lição na tela
@@ -142,51 +152,105 @@ public class MainActivity extends AppCompatActivity
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
 
-        // final TextView texto = (TextView) this.findViewById(R.id.texto);
+        Date hoje = new Date();
+        String formato = "yyyyMMdd";
+        SimpleDateFormat dataFormatada = new SimpleDateFormat(formato);
+        Long compara = Long.parseLong(dataFormatada.format(hoje));
 
         int id = item.getItemId();
 
         if (id == R.id.licao1) {
             url = url1;
-            Exibe();
+            if (compara > 20160624) {
+                Exibe();
+            } else {
+                Dialogo();
+            }
         } else if (id == R.id.licao2) {
             url = url2;
-            Exibe();
+            if (compara > 20160701) {
+                Exibe();
+            } else {
+                Dialogo();
+            }
         } else if (id == R.id.licao3) {
             url = url3;
-            Exibe();
+            if (compara > 20160709) {
+                Exibe();
+            } else {
+                Dialogo();
+            }
         } else if (id == R.id.licao4) {
             url = url4;
-            Exibe();
+            if (compara > 20160715) {
+                Exibe();
+            } else {
+                Dialogo();
+            }
         } else if (id == R.id.licao5) {
             url = url5;
-            Exibe();
+            if (compara > 20160722) {
+                Exibe();
+            } else {
+                Dialogo();
+            }
         } else if (id == R.id.licao6) {
             url = url6;
-            Exibe();
+            if (compara > 20160729) {
+                Exibe();
+            } else {
+                Dialogo();
+            }
         } else if (id == R.id.licao7) {
             url = url7;
-            Exibe();
+            if (compara > 20160806) {
+                Exibe();
+            } else {
+                Dialogo();
+            }
         } else if (id == R.id.licao8) {
             url = url8;
-            Exibe();
+            if (compara > 20160812) {
+                Exibe();
+            } else {
+                Dialogo();
+            }
         } else if (id == R.id.licao9) {
             url = url9;
-            Exibe();
+            if (compara > 20160819) {
+                Exibe();
+            } else {
+                Dialogo();
+            }
         } else if (id == R.id.licao10) {
             url = url10;
-            Exibe();
+            if (compara > 20160826) {
+                Exibe();
+            } else {
+                Dialogo();
+            }
         } else if (id == R.id.licao11) {
             url = url11;
-            Exibe();
+            if (compara > 20160902) {
+                Exibe();
+            } else {
+                Dialogo();
+            }
         } else if (id == R.id.licao12) {
             url = url12;
-            Exibe();
+            if (compara > 20160909) {
+                Exibe();
+            } else {
+                Dialogo();
+            }
         } else if (id == R.id.licao13) {
             url = url13;
-            Exibe();
+            if (compara > 20160916) {
+                Exibe();
+            } else {
+                Dialogo();
+            }
         } else if (id == R.id.sair) {
             MainActivity.this.finish();
         }
