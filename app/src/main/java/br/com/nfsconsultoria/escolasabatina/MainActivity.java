@@ -9,7 +9,6 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.webkit.WebView;
@@ -37,7 +36,8 @@ public class MainActivity extends AppCompatActivity
     final String url11 = "http://evangelismo.adventistas.org.pt/licao/2016/3T/11";
     final String url12 = "http://evangelismo.adventistas.org.pt/licao/2016/3T/12";
     final String url13 = "http://evangelismo.adventistas.org.pt/licao/2016/3T/13";
-    String url = null;
+
+    private String url = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,15 +48,33 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         Exibe();
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+                this, drawer, toolbar, R.string.navigation_drawer_open,
+                R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putSerializable("url", url);
+
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        url = (String) savedInstanceState.getSerializable("url");
+        if (url == null) {
+            Dialogo();
+        } else {
+            Exibe();
+        }
     }
 
     // TODO Dialogo de item não disponivel
@@ -67,6 +85,8 @@ public class MainActivity extends AppCompatActivity
 
         AlertDialog dialog = alerta.create();
         dialog.show();
+
+        url = null;
     }
 
     // TODO Exibir o conteudo da lição na tela
@@ -83,7 +103,7 @@ public class MainActivity extends AppCompatActivity
             telaInicio.setVisibility(View.VISIBLE);
         } else {
             telaInicio.setVisibility(View.INVISIBLE);
-           webView.getSettings().setJavaScriptEnabled(true);
+            webView.getSettings().setJavaScriptEnabled(true);
             webView.setWebViewClient(new WebViewClient());
             webView.setPadding(0, 0, 0, 0);
             webView.getSettings().setLoadWithOverviewMode(false);
@@ -108,9 +128,12 @@ public class MainActivity extends AppCompatActivity
                 }
 
                 @Override
-                public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
-                    webView.loadDataWithBaseURL("", "<font color= 'blue'>FALHA DE CONEXÃO<font>", "text/html", "UTF-8", "");
-                    Toast.makeText(MainActivity.this, "FALHA NA CONEXÃO COM A INTERNET", Toast.LENGTH_LONG).show();
+                public void onReceivedError(WebView view, int errorCode, String description,
+                                            String failingUrl) {
+                    webView.loadDataWithBaseURL("", "<font color= 'blue'>" +
+                            "FALHA DE CONEXÃO<font>", "text/html", "UTF-8", "");
+                    Toast.makeText(MainActivity.this, "FALHA NA CONEXÃO COM A INTERNET",
+                            Toast.LENGTH_LONG).show();
                 }
             });
         }
@@ -124,29 +147,6 @@ public class MainActivity extends AppCompatActivity
         } else {
             super.onBackPressed();
         }
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            MainActivity.this.finish();
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
