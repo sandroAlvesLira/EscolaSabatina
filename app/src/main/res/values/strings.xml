@@ -1,20 +1,21 @@
 <resources>
-    <string name="app_name">Escola Sabatina 3º Tri de 2016</string>
+    <string name="app_name">Escola Sabatina 4º Tri de 2016</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="action_settings">Sair</string>
-    <string name="licao1">Lição 1: 25 de Jun a 01 Jul</string>
-    <string name="licao2">Lição 2: 02 de Jul a 08 Jul</string>
-    <string name="licao3">Lição 3: 09 de Jul a 15 Jul</string>
-    <string name="licao4">Lição 4: 16 de Jul a 22 Jul</string>
-    <string name="licao5">Lição 5: 23 de Jul a 29 Jul</string>
-    <string name="licao6">Lição 6: 30 de Jul a 05 Ago</string>
-    <string name="licao7">Lição 7: 06 de Ago a 12 Ago</string>
-    <string name="licao8">Lição 8: 13 de Ago a 19 Ago</string>
-    <string name="licao9">Lição 9: 20 de Ago a 26 Ago</string>
-    <string name="licao10">Lição 10: 27 de Ago a 02 Set</string>
-    <string name="licao11">Lição 11: 03 de Set a 09 Set</string>
-    <string name="licao12">Lição 12: 10 de Set a 16 Set</string>
-    <string name="licao13">Lição 13: 17 de Set a 23 Set</string>
+    <string name="action_settings">Excluir Lição OffLine</string>
+    <string name="licao1">Lição 1: 24 de Set a 30 Set</string>
+    <string name="licao2">Lição 2: 01 de Out a 07 Out</string>
+    <string name="licao3">Lição 3: 08 de Out a 14 Out</string>
+    <string name="licao4">Lição 4: 15 de Out a 21 Out</string>
+    <string name="licao5">Lição 5: 22 de Out a 28 Out</string>
+    <string name="licao6">Lição 6: 29 de Out a 04 Nov</string>
+    <string name="licao7">Lição 7: 05 de Nov a 11 Nov</string>
+    <string name="licao8">Lição 8: 12 de Nov a 18 Nov</string>
+    <string name="licao9">Lição 9: 19 de Nov a 25 Nov</string>
+    <string name="licao10">Lição 10: 26 de Nov a 02 Dez</string>
+    <string name="licao11">Lição 11: 03 de Dez a 09 Dez</string>
+    <string name="licao12">Lição 12: 10 de Dez a 16 Dez</string>
+    <string name="licao13">Lição 13: 17 de Dez a 23 Set</string>
+    <string name="licao14">Lição 14: 24 de Dez a 30 Set</string>
 </resources>
