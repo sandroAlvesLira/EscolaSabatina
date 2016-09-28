@@ -23,6 +23,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ScrollView;
 import android.widget.Toast;
 
 import java.io.File;
@@ -169,10 +170,15 @@ public class MainActivity extends AppCompatActivity
     /* Metodo para anotações da lição */
     public void Anota(String titulo, String texto) {
         final AlertDialog.Builder mensagem = new AlertDialog.Builder(MainActivity.this);
+        final ScrollView scrollView = new ScrollView(MainActivity.this);
         mensagem.setTitle(titulo);
         mensagem.setMessage(texto);
         final EditText input = new EditText(this);
-        mensagem.setView(input);
+        input.setHint("Digite as suas anotações");
+        input.setMaxHeight(500);
+        scrollView.addView(input);
+        scrollView.fullScroll(ScrollView.FOCUS_DOWN);
+        mensagem.setView(scrollView);
 
         final SharedPreferences notas = getSharedPreferences(estudo, 0);
         input.setText(notas.getString(estudo, " "));
@@ -184,6 +190,9 @@ public class MainActivity extends AppCompatActivity
                 SharedPreferences.Editor editor = notas.edit();
                 editor.putString(estudo, input.getText().toString());
                 editor.apply();
+                InputMethodManager imm = (InputMethodManager)
+                        getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.toggleSoftInput(InputMethodManager.HIDE_NOT_ALWAYS, 0);
                 toast("Anotações Salva");
 
             }
@@ -192,6 +201,10 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 mensagem.setCancelable(true);
+                InputMethodManager imm = (InputMethodManager)
+                        getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.toggleSoftInput(InputMethodManager.HIDE_NOT_ALWAYS, 0);
+
             }
         });
         mensagem.show();
