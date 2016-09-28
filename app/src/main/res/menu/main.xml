@@ -2,10 +2,16 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/action_settings"
-        android:icon="@android:drawable/ic_menu_delete"
-        android:orderInCategory="100"
+        android:id="@+id/notas"
+        android:icon="@drawable/ic_border_color_black_24dp"
+        android:orderInCategory="101"
         android:title="@string/action_settings"
-        android:titleCondensed="Downloads"
-        app:showAsAction="never" />
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/excluir"
+        android:icon="@drawable/ic_delete_black_24dp"
+        android:orderInCategory="100"
+        android:title="@string/excluir"
+        app:showAsAction="always" />
+
 </menu>

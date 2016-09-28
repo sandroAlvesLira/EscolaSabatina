@@ -1,9 +1,10 @@
 <resources>
-    <string name="app_name">Escola Sabatina 4º Tri de 2016</string>
+    <string name="app_name">Lições 4º Tri de 2016</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="action_settings">Excluir Lição OffLine</string>
+    <string name="action_settings">Anotações</string>
+    <string name="excluir">Excluir Lição OffLine</string>
     <string name="licao1">Lição 1: 24 de Set a 30 Set</string>
     <string name="licao2">Lição 2: 01 de Out a 07 Out</string>
     <string name="licao3">Lição 3: 08 de Out a 14 Out</string>

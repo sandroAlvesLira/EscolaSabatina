@@ -2,6 +2,8 @@ package br.com.nfsconsultoria.escolasabatina;
 
 import android.app.DownloadManager;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
@@ -13,10 +15,13 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -28,23 +33,24 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     // Declaração das URLs
-    final String url1 = "http://evangelismo.adventistas.org.pt/licao/2016/4T/1";
-    final String url2 = "http://evangelismo.adventistas.org.pt/licao/2016/4T/2";
-    final String url3 = "http://evangelismo.adventistas.org.pt/licao/2016/4T/3";
-    final String url4 = "http://evangelismo.adventistas.org.pt/licao/2016/4T/4";
-    final String url5 = "http://evangelismo.adventistas.org.pt/licao/2016/4T/5";
-    final String url6 = "http://evangelismo.adventistas.org.pt/licao/2016/4T/6";
-    final String url7 = "http://evangelismo.adventistas.org.pt/licao/2016/4T/7";
-    final String url8 = "http://evangelismo.adventistas.org.pt/licao/2016/4T/8";
-    final String url9 = "http://evangelismo.adventistas.org.pt/licao/2016/4T/9";
-    final String url10 = "http://evangelismo.adventistas.org.pt/licao/2016/4T/10";
-    final String url11 = "http://evangelismo.adventistas.org.pt/licao/2016/4T/11";
-    final String url12 = "http://evangelismo.adventistas.org.pt/licao/2016/4T/12";
-    final String url13 = "http://evangelismo.adventistas.org.pt/licao/2016/4T/13";
-    final String url14 = "http://evangelismo.adventistas.org.pt/licao/2016/4T/14";
+    final private String url1 = "http://evangelismo.adventistas.org.pt/licao/2016/4T/1";
+    final private String url2 = "http://evangelismo.adventistas.org.pt/licao/2016/4T/2";
+    final private String url3 = "http://evangelismo.adventistas.org.pt/licao/2016/4T/3";
+    final private String url4 = "http://evangelismo.adventistas.org.pt/licao/2016/4T/4";
+    final private String url5 = "http://evangelismo.adventistas.org.pt/licao/2016/4T/5";
+    final private String url6 = "http://evangelismo.adventistas.org.pt/licao/2016/4T/6";
+    final private String url7 = "http://evangelismo.adventistas.org.pt/licao/2016/4T/7";
+    final private String url8 = "http://evangelismo.adventistas.org.pt/licao/2016/4T/8";
+    final private String url9 = "http://evangelismo.adventistas.org.pt/licao/2016/4T/9";
+    final private String url10 = "http://evangelismo.adventistas.org.pt/licao/2016/4T/10";
+    final private String url11 = "http://evangelismo.adventistas.org.pt/licao/2016/4T/11";
+    final private String url12 = "http://evangelismo.adventistas.org.pt/licao/2016/4T/12";
+    final private String url13 = "http://evangelismo.adventistas.org.pt/licao/2016/4T/13";
+    final private String url14 = "http://evangelismo.adventistas.org.pt/licao/2016/4T/14";
 
     private String url = null;
     private String licao = null;
+    private String estudo = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,22 +72,55 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
     }
 
+    /* Salvar url da instancia atual */
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putSerializable("url", url);
-
+        outState.putSerializable("estudo", estudo);
     }
 
+    /* Reculperar a url da instancia salva */
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
         url = (String) savedInstanceState.getSerializable("url");
+        estudo = (String) savedInstanceState.getSerializable("estudo");
         if (url == null) {
             Dialogo();
         } else {
             Exibe();
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.notas) {
+            if (estudo != null) {
+                Anota("Anotações da " + estudo, "");
+                return true;
+            } else {
+                toast("Anotação indisponivel no momento");
+            }
+        } else if (id == R.id.excluir) {
+            File arq = new File(Environment.getExternalStorageDirectory() +
+                    "/Android/data" +
+                    "/br.com.nfsconsultoria.escolasabatina/files/Download/" + licao);
+            if (arq.exists()) {
+                arq.delete();
+                toast("Lição " + licao + " excluida com sucesso");
+            } else {
+                toast("Nenhuma lição encontrada");
+            }
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     /* Metodo de menssagem toast */
@@ -99,12 +138,11 @@ public class MainActivity extends AppCompatActivity
                 "/br.com.nfsconsultoria.escolasabatina/files/Download/" + licao);
 
         try {
-
             Uri uri = Uri.parse(url);
             DownloadManager.Request request = new DownloadManager.Request(uri);
             request.setAllowedOverRoaming(true);
-            request.setDestinationInExternalFilesDir(MainActivity.this, Environment.DIRECTORY_DOWNLOADS,
-                    licao);
+            request.setDestinationInExternalFilesDir(MainActivity.this,
+                    Environment.DIRECTORY_DOWNLOADS, licao);
             if (file.exists()) {
                 toast("Lição disponivel offline");
             } else {
@@ -126,6 +164,41 @@ public class MainActivity extends AppCompatActivity
         dialog.show();
 
         url = null;
+    }
+
+    /* Metodo para anotações da lição */
+    public void Anota(String titulo, String texto) {
+        final AlertDialog.Builder mensagem = new AlertDialog.Builder(MainActivity.this);
+        mensagem.setTitle(titulo);
+        mensagem.setMessage(texto);
+        final EditText input = new EditText(this);
+        mensagem.setView(input);
+
+        final SharedPreferences notas = getSharedPreferences(estudo, 0);
+        input.setText(notas.getString(estudo, " "));
+
+        mensagem.setNeutralButton("Salvar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                SharedPreferences.Editor editor = notas.edit();
+                editor.putString(estudo, input.getText().toString());
+                editor.apply();
+                toast("Anotações Salva");
+
+            }
+        });
+        mensagem.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                mensagem.setCancelable(true);
+            }
+        });
+        mensagem.show();
+        // Força o teclado aparecer ao abrir o Alert
+        InputMethodManager imm = (InputMethodManager)
+                getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0);
     }
 
     /* Exibir o conteudo da lição na tela */
@@ -172,7 +245,8 @@ public class MainActivity extends AppCompatActivity
                 @Override
                 public void onReceivedError(WebView view, int errorCode, String description,
                                             String failingUrl) {
-                    File file = new File(Environment.getExternalStorageDirectory() + "/Android/data" +
+                    File file = new File(Environment.getExternalStorageDirectory()
+                            + "/Android/data" +
                             "/br.com.nfsconsultoria.escolasabatina/files/Download/" + licao);
 
                     if (file.exists()) {
@@ -212,137 +286,155 @@ public class MainActivity extends AppCompatActivity
             url = url1;
             licao = "licao1_3_2016.html";
             if (compara > 20160923) {
+                estudo = getString(R.string.licao1);
                 Download();
                 Exibe();
             } else {
+                estudo = null;
                 Dialogo();
             }
         } else if (id == R.id.licao2) {
             url = url2;
             licao = "licao2_3_2016.html";
             if (compara > 20160930) {
+                estudo = getString(R.string.licao2);
                 Download();
                 Exibe();
             } else {
+                estudo = null;
                 Dialogo();
             }
         } else if (id == R.id.licao3) {
             url = url3;
             licao = "licao3_3_2016.html";
             if (compara > 20161007) {
+                estudo = getString(R.string.licao3);
                 Download();
                 Exibe();
             } else {
+                estudo = null;
                 Dialogo();
             }
         } else if (id == R.id.licao4) {
             url = url4;
             licao = "licao4_3_2016.html";
             if (compara > 20161014) {
+                estudo = getString(R.string.licao4);
                 Download();
                 Exibe();
             } else {
+                estudo = null;
                 Dialogo();
             }
         } else if (id == R.id.licao5) {
             url = url5;
             licao = "licao5_3_2016.html";
             if (compara > 20161021) {
+                estudo = getString(R.string.licao5);
                 Download();
                 Exibe();
             } else {
+                estudo = null;
                 Dialogo();
             }
         } else if (id == R.id.licao6) {
             url = url6;
             licao = "licao6_3_2016.html";
             if (compara > 20161028) {
+                estudo = getString(R.string.licao6);
                 Download();
                 Exibe();
             } else {
+                estudo = null;
                 Dialogo();
             }
         } else if (id == R.id.licao7) {
             url = url7;
             licao = "licao7_3_2016.html";
             if (compara > 20161104) {
+                estudo = getString(R.string.licao7);
                 Download();
                 Exibe();
             } else {
+                estudo = null;
                 Dialogo();
             }
         } else if (id == R.id.licao8) {
             url = url8;
             licao = "licao8_3_2016.html";
             if (compara > 20161111) {
+                estudo = getString(R.string.licao8);
                 Download();
                 Exibe();
             } else {
+                estudo = null;
                 Dialogo();
             }
         } else if (id == R.id.licao9) {
             url = url9;
             licao = "licao9_3_2016.html";
             if (compara > 20161118) {
+                estudo = getString(R.string.licao9);
                 Download();
                 Exibe();
             } else {
+                estudo = null;
                 Dialogo();
             }
         } else if (id == R.id.licao10) {
             url = url10;
             licao = "licao10_3_2016.html";
             if (compara > 20161125) {
+                estudo = getString(R.string.licao10);
                 Download();
                 Exibe();
             } else {
+                estudo = null;
                 Dialogo();
             }
         } else if (id == R.id.licao11) {
             url = url11;
             licao = "licao11_3_2016.html";
             if (compara > 20161202) {
+                estudo = getString(R.string.licao11);
                 Download();
                 Exibe();
             } else {
+                estudo = null;
                 Dialogo();
             }
         } else if (id == R.id.licao12) {
             url = url12;
             licao = "licao12_3_2016.html";
             if (compara > 20161209) {
+                estudo = getString(R.string.licao12);
                 Download();
                 Exibe();
             } else {
+                estudo = null;
                 Dialogo();
             }
         } else if (id == R.id.licao13) {
             url = url13;
             licao = "licao13_3_2016.html";
             if (compara > 20161216) {
+                estudo = getString(R.string.licao13);
                 Download();
                 Exibe();
             } else {
+                estudo = null;
                 Dialogo();
             }
         } else if (id == R.id.licao14) {
             url = url14;
             licao = "licao14_3_2016.html";
             if (compara > 20161223) {
+                estudo = getString(R.string.licao14);
                 Download();
                 Exibe();
             } else {
+                estudo = null;
                 Dialogo();
-            }
-        } else if (id == R.id.downloads) {
-            File arq = new File(Environment.getExternalStorageDirectory() +
-                    "/Android/data" +
-                    "/br.com.nfsconsultoria.escolasabatina/files/Download/" + licao);
-            if (arq.exists()) {
-                arq.delete();
-                toast("Lição " + licao + " excluida com sucesso");
-            } else {
-                toast("Nenhuma lição encontrada");
             }
         } else if (id == R.id.sair) {
             MainActivity.this.finish();

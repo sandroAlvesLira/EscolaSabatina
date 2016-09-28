@@ -78,10 +78,6 @@
     <item android:title="Opções">
         <menu>
             <item
-                android:id="@+id/downloads"
-                android:icon="@drawable/ic_delete_black_24dp"
-                android:title="@string/action_settings" />
-            <item
                 android:id="@+id/sair"
                 android:icon="@drawable/ic_directions_walk_24dp"
                 android:title="Sair" />
