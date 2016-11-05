@@ -105,20 +105,22 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
         if (id == R.id.notas) {
             if (estudo != null) {
-                Anota("Anotações da " + estudo, "");
+                Anota ("Anotações da " + estudo, "");
                 return true;
             } else {
                 toast("Anotação indisponivel no momento");
             }
-        } else if (id == R.id.excluir) {
-            File arq = new File(Environment.getExternalStorageDirectory() +
-                    "/Android/data" +
-                    "/br.com.nfsconsultoria.escolasabatina/files/Download/" + licao);
-            if (arq.exists()) {
-                arq.delete();
-                toast("Lição " + licao + " excluida com sucesso");
-            } else {
-                toast("Nenhuma lição encontrada");
+        } else {
+            if (id == R.id.excluir) {
+                File arq = new File (Environment.getExternalStorageDirectory () +
+                        "/Android/data" +
+                        "/br.com.nfsconsultoria.escolasabatina/files/Download/" + licao);
+                if (arq.exists ()) {
+                    arq.delete ();
+                    toast ("Lição " + licao + " excluida com sucesso");
+                } else {
+                    toast ("Nenhuma lição encontrada");
+                }
             }
         }
         return super.onOptionsItemSelected(item);
@@ -142,8 +144,10 @@ public class MainActivity extends AppCompatActivity
             Uri uri = Uri.parse(url);
             DownloadManager.Request request = new DownloadManager.Request(uri);
             request.setAllowedOverRoaming(true);
+            // Seta o destino da lição para a pasta de Downloads
             request.setDestinationInExternalFilesDir(MainActivity.this,
                     Environment.DIRECTORY_DOWNLOADS, licao);
+            // Verifica se a lição existe, caso não exista faz o dowload
             if (file.exists()) {
                 toast("Lição disponivel offline");
             } else {
@@ -183,6 +187,7 @@ public class MainActivity extends AppCompatActivity
         final SharedPreferences notas = getSharedPreferences(estudo, 0);
         input.setText(notas.getString(estudo, " "));
 
+        // Salva a anotação na pasta local
         mensagem.setNeutralButton("Salvar", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
