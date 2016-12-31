@@ -8,8 +8,8 @@ android {
         applicationId "br.com.nfsconsultoria.escolasabatina"
         minSdkVersion 9
         targetSdkVersion 23
-        versionCode 12
-        versionName "16.4.3"
+        versionCode 13
+        versionName "17.0.1"
     }
     buildTypes {
         release {

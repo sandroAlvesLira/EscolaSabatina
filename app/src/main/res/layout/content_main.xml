@@ -40,7 +40,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="left|top"
-            android:background="@mipmap/ic_licao"
+            android:background="@mipmap/licao2017"
             android:baselineAlignBottom="false"
             android:scrollbars="vertical" />
 

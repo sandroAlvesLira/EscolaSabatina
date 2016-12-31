@@ -34,20 +34,18 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     // Declaração das URLs
-    final private String url1 = "http://evangelismo.adventistas.org.pt/licao/2016/4T/1";
-    final private String url2 = "http://evangelismo.adventistas.org.pt/licao/2016/4T/2";
-    final private String url3 = "http://evangelismo.adventistas.org.pt/licao/2016/4T/3";
-    final private String url4 = "http://evangelismo.adventistas.org.pt/licao/2016/4T/4";
-    final private String url5 = "http://evangelismo.adventistas.org.pt/licao/2016/4T/5";
-    final private String url6 = "http://evangelismo.adventistas.org.pt/licao/2016/4T/6";
-    final private String url7 = "http://evangelismo.adventistas.org.pt/licao/2016/4T/7";
-    final private String url8 = "http://evangelismo.adventistas.org.pt/licao/2016/4T/8";
-    final private String url9 = "http://evangelismo.adventistas.org.pt/licao/2016/4T/9";
-    final private String url10 = "http://evangelismo.adventistas.org.pt/licao/2016/4T/10";
-    final private String url11 = "http://evangelismo.adventistas.org.pt/licao/2016/4T/11";
-    final private String url12 = "http://evangelismo.adventistas.org.pt/licao/2016/4T/12";
-    final private String url13 = "http://evangelismo.adventistas.org.pt/licao/2016/4T/13";
-    final private String url14 = "http://evangelismo.adventistas.org.pt/licao/2016/4T/14";
+    final private String url1 = "http://evangelismo.adventistas.org.pt/licao/2017/1T/1";
+    final private String url2 = "http://evangelismo.adventistas.org.pt/licao/2017/1T/2";
+    final private String url3 = "http://evangelismo.adventistas.org.pt/licao/2017/1T/3";
+    final private String url4 = "http://evangelismo.adventistas.org.pt/licao/2017/1T/4";
+    final private String url5 = "http://evangelismo.adventistas.org.pt/licao/2017/1T/5";
+    final private String url6 = "http://evangelismo.adventistas.org.pt/licao/2017/1T/6";
+    final private String url7 = "http://evangelismo.adventistas.org.pt/licao/2017/1T/7";
+    final private String url8 = "http://evangelismo.adventistas.org.pt/licao/2017/1T/8";
+    final private String url9 = "http://evangelismo.adventistas.org.pt/licao/2017/1T/9";
+    final private String url10 = "http://evangelismo.adventistas.org.pt/licao/2017/1T/10";
+    final private String url11 = "http://evangelismo.adventistas.org.pt/licao/2017/1T/11";
+    final private String url12 = "http://evangelismo.adventistas.org.pt/licao/2017/1T/12";
 
     private String url = null;
     private String licao = null;
@@ -302,8 +300,8 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.licao1) {
             url = url1;
-            licao = "licao1_3_2016.html";
-            if (compara > 20160923) {
+            licao = "licao1_1_2017.html";
+            if (compara > 20161230) {
                 estudo = getString(R.string.licao1);
                 Download();
                 Exibe();
@@ -313,8 +311,8 @@ public class MainActivity extends AppCompatActivity
             }
         } else if (id == R.id.licao2) {
             url = url2;
-            licao = "licao2_3_2016.html";
-            if (compara > 20160930) {
+            licao = "licao2_1_2017.html";
+            if (compara > 20170106) {
                 estudo = getString(R.string.licao2);
                 Download();
                 Exibe();
@@ -324,8 +322,8 @@ public class MainActivity extends AppCompatActivity
             }
         } else if (id == R.id.licao3) {
             url = url3;
-            licao = "licao3_3_2016.html";
-            if (compara > 20161007) {
+            licao = "licao3_1_2017.html";
+            if (compara > 20170113) {
                 estudo = getString(R.string.licao3);
                 Download();
                 Exibe();
@@ -335,8 +333,8 @@ public class MainActivity extends AppCompatActivity
             }
         } else if (id == R.id.licao4) {
             url = url4;
-            licao = "licao4_3_2016.html";
-            if (compara > 20161014) {
+            licao = "licao4_1_2017.html";
+            if (compara > 20170120) {
                 estudo = getString(R.string.licao4);
                 Download();
                 Exibe();
@@ -346,8 +344,8 @@ public class MainActivity extends AppCompatActivity
             }
         } else if (id == R.id.licao5) {
             url = url5;
-            licao = "licao5_3_2016.html";
-            if (compara > 20161021) {
+            licao = "licao5_1_2017.html";
+            if (compara > 20170127) {
                 estudo = getString(R.string.licao5);
                 Download();
                 Exibe();
@@ -357,8 +355,8 @@ public class MainActivity extends AppCompatActivity
             }
         } else if (id == R.id.licao6) {
             url = url6;
-            licao = "licao6_3_2016.html";
-            if (compara > 20161028) {
+            licao = "licao6_1_2017.html";
+            if (compara > 20170203) {
                 estudo = getString(R.string.licao6);
                 Download();
                 Exibe();
@@ -368,8 +366,8 @@ public class MainActivity extends AppCompatActivity
             }
         } else if (id == R.id.licao7) {
             url = url7;
-            licao = "licao7_3_2016.html";
-            if (compara > 20161104) {
+            licao = "licao7_1_2017.html";
+            if (compara > 20170210) {
                 estudo = getString(R.string.licao7);
                 Download();
                 Exibe();
@@ -379,8 +377,8 @@ public class MainActivity extends AppCompatActivity
             }
         } else if (id == R.id.licao8) {
             url = url8;
-            licao = "licao8_3_2016.html";
-            if (compara > 20161111) {
+            licao = "licao8_1_2017.html";
+            if (compara > 20170217) {
                 estudo = getString(R.string.licao8);
                 Download();
                 Exibe();
@@ -390,8 +388,8 @@ public class MainActivity extends AppCompatActivity
             }
         } else if (id == R.id.licao9) {
             url = url9;
-            licao = "licao9_3_2016.html";
-            if (compara > 20161118) {
+            licao = "licao9_1_2017.html";
+            if (compara > 20170224) {
                 estudo = getString(R.string.licao9);
                 Download();
                 Exibe();
@@ -401,8 +399,8 @@ public class MainActivity extends AppCompatActivity
             }
         } else if (id == R.id.licao10) {
             url = url10;
-            licao = "licao10_3_2016.html";
-            if (compara > 20161125) {
+            licao = "licao10_1_2017.html";
+            if (compara > 20170303) {
                 estudo = getString(R.string.licao10);
                 Download();
                 Exibe();
@@ -412,8 +410,8 @@ public class MainActivity extends AppCompatActivity
             }
         } else if (id == R.id.licao11) {
             url = url11;
-            licao = "licao11_3_2016.html";
-            if (compara > 20161202) {
+            licao = "licao11_1_2017.html";
+            if (compara > 20170310) {
                 estudo = getString(R.string.licao11);
                 Download();
                 Exibe();
@@ -423,8 +421,8 @@ public class MainActivity extends AppCompatActivity
             }
         } else if (id == R.id.licao12) {
             url = url12;
-            licao = "licao12_3_2016.html";
-            if (compara > 20161209) {
+            licao = "licao12_1_2017.html";
+            if (compara > 20170317) {
                 estudo = getString(R.string.licao12);
                 Download();
                 Exibe();
@@ -432,28 +430,7 @@ public class MainActivity extends AppCompatActivity
                 estudo = null;
                 Dialogo();
             }
-        } else if (id == R.id.licao13) {
-            url = url13;
-            licao = "licao13_3_2016.html";
-            if (compara > 20161216) {
-                estudo = getString(R.string.licao13);
-                Download();
-                Exibe();
-            } else {
-                estudo = null;
-                Dialogo();
-            }
-        } else if (id == R.id.licao14) {
-            url = url14;
-            licao = "licao14_3_2016.html";
-            if (compara > 20161223) {
-                estudo = getString(R.string.licao14);
-                Download();
-                Exibe();
-            } else {
-                estudo = null;
-                Dialogo();
-            }
+
         } else if (id == R.id.sair) {
             MainActivity.this.finish();
         }

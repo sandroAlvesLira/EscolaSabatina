@@ -63,15 +63,6 @@
             android:icon="@drawable/ic_local_library_24dp"
             android:title="@string/licao12" />
 
-        <item
-            android:id="@+id/licao13"
-            android:icon="@drawable/ic_local_library_24dp"
-            android:title="@string/licao13" />
-
-        <item
-            android:id="@+id/licao14"
-            android:icon="@drawable/ic_local_library_24dp"
-            android:title="@string/licao14" />
 
     </group>
 

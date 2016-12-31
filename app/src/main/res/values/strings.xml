@@ -1,22 +1,21 @@
 <resources>
-    <string name="app_name">Lições 4º Tri de 2016</string>
+    <string name="app_name">Lições 1º Tri de 2017</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="action_settings">Anotações</string>
     <string name="excluir">Excluir Lição OffLine</string>
-    <string name="licao1">Lição 1: 24 de Set a 30 Set</string>
-    <string name="licao2">Lição 2: 01 de Out a 07 Out</string>
-    <string name="licao3">Lição 3: 08 de Out a 14 Out</string>
-    <string name="licao4">Lição 4: 15 de Out a 21 Out</string>
-    <string name="licao5">Lição 5: 22 de Out a 28 Out</string>
-    <string name="licao6">Lição 6: 29 de Out a 04 Nov</string>
-    <string name="licao7">Lição 7: 05 de Nov a 11 Nov</string>
-    <string name="licao8">Lição 8: 12 de Nov a 18 Nov</string>
-    <string name="licao9">Lição 9: 19 de Nov a 25 Nov</string>
-    <string name="licao10">Lição 10: 26 de Nov a 02 Dez</string>
-    <string name="licao11">Lição 11: 03 de Dez a 09 Dez</string>
-    <string name="licao12">Lição 12: 10 de Dez a 16 Dez</string>
-    <string name="licao13">Lição 13: 17 de Dez a 23 Dez</string>
-    <string name="licao14">Lição 14: 24 de Dez a 30 Dez</string>
+    <string name="licao1">Lição 1: 31 de Dez a 06 Jan</string>
+    <string name="licao2">Lição 2: 07 de Jan a 13 Jan</string>
+    <string name="licao3">Lição 3: 14 de Jan a 20 Jan</string>
+    <string name="licao4">Lição 4: 21 de Jan a 27 Jan</string>
+    <string name="licao5">Lição 5: 28 de Jan a 03 Fev</string>
+    <string name="licao6">Lição 6: 04 de Fev a 10 Fev</string>
+    <string name="licao7">Lição 7: 11 de Fev a 17 Fev</string>
+    <string name="licao8">Lição 8: 18 de Fev a 24 Fev</string>
+    <string name="licao9">Lição 9: 25 de Fev a 03 Mar</string>
+    <string name="licao10">Lição 10: 04 de Mar a 10 Mar</string>
+    <string name="licao11">Lição 11: 11 de Mar a 17 Mar</string>
+    <string name="licao12">Lição 12: 18 de Mar a 24 Mar</string>
+
 </resources>
